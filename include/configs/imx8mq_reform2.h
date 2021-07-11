@@ -74,6 +74,7 @@
 
 #ifndef CONFIG_SPL_BUILD
 #define BOOT_TARGET_DEVICES(func) \
+	func(NVME, nvme, 0) \
 	func(MMC, mmc, 1) \
 	func(MMC, mmc, 0) \
 	func(USB, usb, 0) \
@@ -145,6 +146,10 @@
 
 #ifndef CONFIG_SPL_BUILD
 #define CONFIG_DM_PMIC
+#endif
+
+#ifdef CONFIG_CMD_PCI
+#define CONFIG_PCI_SCAN_SHOW
 #endif
 
 #endif
